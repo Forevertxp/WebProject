@@ -1,0 +1,62 @@
+.box{padding:10px 5px 15px 20px; height:auto !important; margin:0 auto; clear:both;}
+.top_bar{ padding:14px 0 0 0;}
+.logo{ width:160px; height:80px; overflow:hidden; float:left;}
+.navigate{ float:right; height:80px; width:812px;}
+.right_select{ padding:6px 0 15px 0;width:812px; float:right; width:787px; }
+.option{ width:118px; height:20px; color:#333; padding-left:40px; border:1px solid #DBDBDB; line-height:20px; float:right;}
+.right_button{ float:right;}
+.right_button span{ float:right; width:30px; height:30px; margin-right:12px;}
+
+/*导航*/
+.mianNav{ float:right; height:22px;}
+.mianNav li{ float:left;}
+.mianNav li a{ width:87px; height:23px; line-height:23px; font-family:"微软雅黑"; font-size:14px; color:#333; text-align:center; display:block; margin-left:2px; text-decoration:none; background:url(../images/li_bg.png) no-repeat;}
+.mianNav li a.on{ background:url(../images/on_bg.png); width:87px; height:23px; line-height:23px; background-position:center center; color:#FFF;}
+
+.menu{ height:27px; background:url(../images/menu_bg.jpg);}
+.menu li{ float:left; color:#FFF;text-shadow:0px 1px 0px #666;}
+.menu li a{ font-size:14px; font-family:"微软雅黑"; color:#FFF; line-height:27px; margin:0 20px; text-decoration:none;text-shadow:0px 1px 0px #666;}
+.nav_more{ background:url(../images/nav_more_bg.png) repeat-x; height:112px; z-index:9999; position:absolute; top:27px; left:0px;}
+.nav_more li{ float:none; background:url(../images/li_list.jpg) no-repeat 10px 9px; width:110px; height:20px; overflow:hidden;}
+.nav_more li a{ font-size:12px; margin:0; padding:0 18px; height:20px; overflow:hidden; display:inline-block; line-height:20px;}
+.nav_more li a:hover{ background:#3554AE; width:74px;}
+
+
+/*内容*/
+.coment{ padding-top:20px; height:100%;}
+.com_left{ float:left; width:740px;}
+.left_top h2{ font-size:22px; font-family:"微软雅黑"; color:#4660C1; font-weight:normal; border-bottom:1px solid #98ACDE; line-height:30px;}
+.left_bot{ margin-top:2px; border-top:2px solid #98ACDE; padding-top:10px;}
+.left_bot_nav{ background:url(../images/nav_bg.png); height:25px;}
+.left_bot_nav li{ float:left;}
+.left_bot_nav li a{ font-size:12px; font-family:"宋体"; color:#333; line-height:25px; padding:0 25px 0 25px; display:block; text-decoration:none;}
+.left_bot_nav li a.current{ background:url(../images/bot_nav_bg.jpg) repeat-x; font-weight:bold;}
+
+.left_bot_box{ margin-top:12px; width:616px; padding-left:26px;}
+.left_bot_box p{ line-height:25px; font-size:12px; color:#7D7D7D;}
+.left_bot_box p span{ float:left;}
+.correct_pic{ width:23px; height:23px; margin-right:10px;}
+
+.bot_box_nav{ padding-left:70px; border-top:1px solid #D9D9D7; padding-top:20px; min-height:450px; _height:450px;}
+.bot_box_nav li{ padding:15px 0 0 0; background:url(../images/icon_bg.png) no-repeat left 20px;}
+.bot_box_nav li a{ font-size:12px; color:#415ebc; text-decoration:none; padding-left:20px; line-height:20px;}
+
+.com_right{ float:right; width:221px;}
+.com_right_com{margin-bottom:5px;}
+.right_com_tilte{ background:url(../images/h2_bg.jpg) no-repeat; height:30px; padding:0 10px;}
+.right_h2{ font-size:14px; line-height:30px; font-family:"宋体"; color:#526dc4; background:url(../images/iocn_1.png) no-repeat left; padding-left:24px; font-weight:normal;}
+.right_com_g{ border:1px solid #DFE0E4; background:#EAF0FE; padding:10px 0 10px 20px; border-top:none; }
+.right_com_g li a{ font-size:12px; font-family:"宋体"; color:#7b7d7c; line-height:30px; text-decoration:none;}
+
+.right_com_d{border:1px solid #DFE0E4; background:#EAF0FE; padding:10px 0 10px 20px; border-top:none; }
+.right_com_d li{ line-height:30px;}
+.right_com_d li span{ width:100px; text-align:right; display:inline-block;font-size:12px; font-family:"宋体"; color:#7b7d7c;}
+.right_h2_1{ font-size:14px; line-height:30px; font-family:"宋体"; color:#526dc4; background:url(../images/icon_2.png) no-repeat left; padding-left:24px; font-weight:normal;}
+.right_h2_2{ font-size:14px; line-height:30px; font-family:"宋体"; color:#526dc4; background:url(../images/icon_3.png) no-repeat left; padding-left:24px; font-weight:normal;}
+
+/*页脚*/
+.footer {clear:both; text-align:center; padding-top:5px; line-height:22px; border-top:1px solid #4665BF; margin-top:15px; height:55px;}
+.footer_nav ul li{display:inline;}
+.footer_nav ul li a{ font-size:12px; font-family:"宋体"; color:#575757; text-decoration:none; padding:0 2px;}
+.footer_nav ul li a.on_current{ font-weight:bold;}
+.copyRight{font-size:12px; font-family:"宋体"; color:#575757;}

@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/*节目详情区CSS-按分类定制规则(all)*/
+.showInfo{min-height:150px;_height:150px;padding-bottom:15px;position:relative;}
+.showInfo .baseinfo,
+.showInfo .basedata,
+.showInfo .basenotice,
+.showInfo .baseaction,
+.showInfo .baseshare{position:relative;padding-left:215px;width:395px;color:#909090;margin-bottom:15px;}
+.showInfo .baseshare{margin-bottom:0;}
+.showInfo .basenotice{margin-bottom:8px;}
+.showInfo .baseaction{margin-bottom:8px;position:relative;z-index:1;}
+.showInfo .baseinfo .row1,
+.showInfo .baseinfo .row2,
+.showInfo .basedata .row1,
+.showInfo .basedata .row2{height:20px;line-height:20px;overflow:hidden;}
+.showInfo .baseinfo .row2,
+.showInfo .basedata .row2{*margin-bottom:-3px;}
+.showInfo label{color:#909090;margin-right:5px;}
+.showInfo .baseinfo .link{width:100px;height:150px;z-index:2;position:absolute;top:0;left:0;background:url(/index/img/master.png) no-repeat 5000px 5000px;}
+.showInfo .baseinfo .link a{display:block;height:100%;}
+.showInfo .baseinfo .thumb{width:100px;height:150px;position:absolute;top:0;left:0;margin-bottom:0;background:#999;}
+.showInfo .baseinfo .thumb img{position:static;width:100px;height:150px;}
+.showInfo .baseinfo .status{width:200px;height:18px;top:282px;z-index:1;position:absolute;left:0;overflow:hidden;}
+.showInfo .baseinfo .status .bg{z-index:-1;position:absolute;top:0;left:0;display:block;width:100%;height:18px;background:black;filter:alpha(opacity=60);opacity:0.6;}
+.showInfo .baseinfo .status .statu{color:#fff;margin-left:4px;line-height:17px;}
+.showInfo .baseinfo .ishd{left:171px;top:284px;z-index:1;position:absolute;height:15px;line-height:14px;overflow:hidden;}
+.showInfo .baseinfo .ishd .ico__HD{vertical-align:baseline;}
+.showInfo .rate .ratingstar,
+.showInfo .rate .rating_dp,
+.showInfo .rate .rating_IMDB{margin-right:20px;}
+.showInfo .ratingstar .rating .num{height:15px;font-size:18px;color:#F60;}
+.showInfo .rate .num{font-weight:bold;font-size:12px;color:#F60;font-style:normal;}
+.showInfo .rate .rating{position:relative;top:-2px;*top:1px;}
+.showInfo .baseinfo .row2 .pub,
+.showInfo .baseinfo .row2 .ypub,
+.showInfo .baseinfo .row2 .lang,
+.showInfo .baseinfo .row2 .caption,
+.showInfo .baseinfo .row2 .area,
+.showInfo .baseinfo .row2 .type,
+.showInfo .baseinfo .row2 .director,
+.showInfo .baseinfo .row2 .actor,
+.showInfo .basedata .row2 .play,
+.showInfo .basedata .row2 .comment,
+.showInfo .basedata .row2 .increm,
+.showInfo .basedata .row2 .duration,
+.showInfo .basedata .row2 .vr,
+.showInfo .basedata .row2 .ranking{display:block;float:left;width:50%;*width:49.9%}
+.showInfo .baseinfo .ypub{font-weight:bold;}
+.showInfo .basedata .num,.showInfo .basedata em.num{font-style:normal;font-size:12px;}
+.showInfo .basedata .ico__VR{margin-left:3px;_margin-top:3px;}
+.showInfo .basenotice .tip_y{color:#ff9900;}
+.showInfo .baseaction .price{margin-bottom:15px;}
+.showInfo .baseaction .price del{font-size:14px;margin-right:10px;white-space:nowrap;vertical-align:middle;}
+.showInfo .baseaction .price strong{font-size:24px;color:#ff6600;*line-height:40px;font-family:"Microsoft YaHei","微软雅黑";white-space:nowrap;}
+.showInfo .baseaction .action .btnShow{margin-right:10px;}
+.showInfo .baseaction .action .color{color:#f60;}
+.showInfo .baseaction .bookingpass .info{font-size:18px;font-family:"Microsoft YaHei","微软雅黑";margin-right:20px;}
+.showInfo .baseaction .bookingpass .ico_pass_b{margin-right:10px;}
+.showInfo .baseaction .bookingpass .link{margin-right:20px;}
+.showInfo .basenotice .follow{margin:0 4px;font-weight:bolder;}
+.showInfo .basenotice .splite, .showInfo .basenotice .followed{margin:0 4px;}
+
+/*剧集CSS-tv,comic...*/
+.seriespanels{margin-bottom:10px;}
+.linkpanels .notes{position:relative;height:24px;line-height:24px;padding:0 24px 0 6px;margin-bottom:10px;color:#909090;border:1px solid #ecdda8;background:#ffffe5;}
+.linkpanels .close{display:block;cursor:pointer;position:absolute;right:8px;top:7px;width:10px;height:10px;background:url(/show/images/show_V1.png) no-repeat -30px -860px;}
+.linkpanels .loading,.linkpanels .null,.linkpanels .handle{height:30px;line-height:30px;border:1px solid #dfdfdf;margin-bottom:10px;background:#fff;padding:0 10px;text-align:center;color:#909090;}
+.linkpanels .handle .ico_up_triangle,.linkpanels .handle .ico_down_triangle{vertical-align:middle;margin-left:3px;_margin:13px 0 13px 3px;_overflow:hidden;}
+.linkpanels .loading .ico__loading_16{_margin:8px 2px 8px 0;_vertical-align:middle;}
+.pgm-tab{overflow:hidden;position:relative;width:610px;margin-bottom:10px;}
+.pgm-tab .pgm-list{position:relative;width:630px;margin-bottom:-10px;}
+.pgm-tab .pgm-list ul{overflow:hidden;}
+.pgm-tab .pgm-list li{float:left;min-width:76px;_width:76px;height:18px;line-height:18px;text-align:center;border:1px solid #dfdfdf;margin-right:10px;margin-bottom:10px;background:#fff;}
+.pgm-tab .pgm-list a{display:block;padding:0 6px;height:100%;text-decoration:none;color:#333;white-space:nowrap;font-family:simsun, '宋体';}
+.pgm-tab .pgm-list a:hover{background:#deedf5;}
+.pgm-tab .pgm-list li.current{background:#deedf5;}
+.pgm-tab .pgm-list-s li{min-width:39px;_width:39px;}
+.linkpanels .linkpanel{position:relative;min-height:126px;_height:126px;*margin-bottom:10px;_margin-bottom:0;}
+.linkpanels .linkpanel li{float:left;position:relative;overflow:hidden;margin:0 10px 10px 0;}
+.linkpanels .linkpanel li a{display:block;height:30px;line-height:30px;border:1px solid #dfdfdf;background:#fff;}
+.linkpanels .linkpanel .disabled span{display:block;height:30px;line-height:30px;border:1px solid #dfdfdf;background:#ededed;}
+.linkpanels .linkpanel .ico_newpgm,
+.linkpanels .linkpanel .ico_preview{overflow:hidden;position:absolute;top:0;right:0;}
+.linkpanels .coll_2{width:620px;position:relative;*margin-bottom:10px;_margin-bottom:0;}
+.linkpanels .coll_2 li a,.linkpanels .coll_2 .disabled span{width:278px;padding:0 10px}
+.linkpanels .coll_2 li a:visited{color:#8e67b2;}
+.linkpanels .coll_2 li a:hover{text-decoration:none;background:#deedf5;}
+.linkpanels .coll_2 .seriesnum{margin-right:5px;}
+.linkpanels .coll_10{width:620px;position:relative;*margin-bottom:10px;_margin-bottom:0;}
+.linkpanels .coll_10 li a,.linkpanels .coll_10 .disabled span{width:50px;text-align:center;font-size:18px;font-family:arial, helvetica, verdana, tahoma, sans-serif;}
+.linkpanels .coll_10 li a:visited{color:#8e67b2;}
+.linkpanels .coll_10 li a:hover{text-decoration:none;background:#deedf5;}
+/*剧集CSS-zy*/
+.zy_series{margin-bottom:30px;_margin-bottom:20px;}
+.series_month{margin-bottom:20px;}
+.series_month .items{min-height:122px;_height:122px;_position:relative;}
+.series_month .items .item{position:relative;overflow:hidden;height:32px;border:1px solid #dfdfdf;margin-bottom:10px;background:#fff url(/show/images/bg_serieslist.png) repeat-x;padding:0 10px;}
+.series_month .item .ititle{float:left;width:300px;line-height:32px;}
+.series_month .item .ititle_w{float:left;width:488px;line-height:32px;}
+.series_month .item .iguests{float:left;width:188px;line-height:32px;}
+.series_month .item .istat{float:right;width:100px;text-align:right;height:32px;line-height:32px;}
+.series_month .item label,.series_month .item .num{color:#909090;padding-right:5px;}
+.series_month .item .ico__statplay{vertical-align: middle;_margin:10px 0;_vertical-align:middle;}
+.series_month .item .ico_newpgm{position:absolute;top:0;right:0;}
+.series_month .loading,.series_month .null,.series_month .handle{height:32px;border:1px solid #dfdfdf;margin-bottom:10px;background:#fff;padding:0 10px;text-align:center;line-height:32px;color:#909090;}
+.series_month .handle .ico_up_triangle,.series_month .handle .ico_down_triangle{vertical-align:middle;margin-left:3px;_margin:13px 0 13px 3px;_overflow:hidden;}
+.series_month .loading .ico__loading_16{_margin:8px 2px 8px 0;_vertical-align:middle;}
+
+/*系列专题CSS--按分类定制规则(movie,zy)*/
+.overview_wrap .series_topic{margin:10px 0 30px;padding:0 10px;}
+.zy_series .series_year{margin:10px 0 30px;padding:0 14px;}
+.series_topic h4,.zy_series .series_year h4{font-weight:normal;margin-bottom:3px;}
+.series_topic .collgrid4w .v, .series_topic .collgrid4w .p, .zy_series .series_year .collgrid4w .v, .zy_series .series_year .collgrid4w .p{margin-right:22px;}
+
+/*正片CSS--movie*/
+.overview .positive{margin:10px 0 30px;padding:0 10px;}
+.overview .positive h4{font-weight:normal;margin-bottom:3px;}
+.overview .positive .collgrid4w .v, .overview .positive .collgrid4w .p{margin-right:22px;}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MVC的配置 -->
+<!-- 引入MVC的命名空间 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+	<!-- 开启注释，MVC的注释 -->
+	<mvc:annotation-driven />
+	<!-- 扫包 -controller -->
+	<context:component-scan base-package="cn.edu.bit.controller" />
+	<!-- MVC的视图解析器，jsp的目录，JstlView解析jsp的标签库 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	 
+	<!-- 排除不需要被拦截的静态资源，mapping是Url中的路径,location是WebContent的目录，cache-period是缓存时间 -->
+	<mvc:resources mapping="/scripts/**" location="/scripts/"
+		cache-period="31536000" />
+	<mvc:resources mapping="/images/**" location="/images/"
+		cache-period="31536000" />
+	<mvc:resources mapping="/css/**" location="/css/"
+		cache-period="31536000" />
+	<!-- 多语言的配置 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>res.messages</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 配置默认语言为cn,往CookieLocaleResolver中写默认的语言 -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="cookieName" value="clientlanguage" />
+		<property name="cookieMaxAge" value="94608000" />
+		<property name="defaultLocale" value="en" />
+	</bean>
+	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/scripts/**" location="/scripts/" />
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:interceptors>
+		<!-- 登录验证拦截器 -->
+		<bean id="loginValidateInterceptor" class="cn.edu.bit.handler.LoginValidateInterceptor" />
+		<!-- 转换语言的拦截器 <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" 
+			/> -->
+
+	</mvc:interceptors>
+
+	<!--SessionLocaleResolver将默认语言写入Session，AcceptHeaderLocaleResolver将根据浏览器的设置取语言w 
+		<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean> 
+		<bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"></bean> -->
+
+</beans>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring的配置 -->
+<!-- 引入命名空间 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<!-- 打开Spring的Annotation支持，spring支持注解 -->
+	<context:annotation-config />
+	<!-- 识别包com.ailk下面类的注解 -->
+	<context:component-scan base-package="cn.edu.bit" />
+	<!-- 导入Src目录下的jdbc.properties文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- huancun peizhiwenjian -->
+	<cache:annotation-driven />
+
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean
+					class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"
+					p:name="logCache" />
+			</set>
+		</property>
+	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<!-- 连接池配置：数据库配置文件jdbc.properties中的jdbc.dialect为hibernate方言，可用于分页 -->
+		<property name="driverClassName" value="${jdbc.connection.driver_class}" />
+		<property name="url" value="${jdbc.connection.url}" />
+		<property name="username" value="${jdbc.connection.username}" />
+		<property name="password" value="${jdbc.connection.password}" />
+		<!-- 配置连接池的初始值 -->
+		<property name="initialSize" value="1" />
+		<!-- 连接池的最大值 -->
+		<!-- <property name="maxActive" value="500"/> -->
+		<!-- 最大空闲时，当经过一个高峰之后，连接池可以将一些用不到的连接释放，一直减少到maxIdle为止 -->
+		<!-- <property name="maxIdle" value="2"/> -->
+		<!-- 当最小空闲时，当连接少于minIdle时会自动去申请一些连接 -->
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="100" />
+		<property name="maxIdle" value="20" />
+		<property name="maxWait" value="1000" />
+	</bean>
+	<!-- 使用 weblogic shujuyuan -->
+	<!--<jee:jndi-lookup id="dataSource1" jndi-name="mhdatasource" /> -->
+	<!--使用会话，创建Spring的SessionFactory工厂 -->
+	<!-- 如果使用的是Annotation的方式，不能使用LocalSessionFactoryBean,而应该使用 org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean支持注解 -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<!-- 注入数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 设置Spring取那个包中查找相应的实体类，cn.edu.bit.entity为hibernate模型包的位置 -->
+		<property name="packagesToScan">
+			<value>cn.edu.bit.entity</value>
+		</property>
+		<property name="hibernateProperties">
+			<!-- <value> hibernate.dialect=org.hibernate.dialect.HSQLDialect </value> -->
+			<props>
+				<!-- 方言 -->
+				<prop key="hibernate.dialect">${jdbc.dialect}</prop>
+				<!-- 在控制台是否输出hibernate生成的原SQL -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- 是否使用entity生成表结构 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- 是否格式化SQL -->
+				<prop key="hibernate.format_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 开启HibernateTemplate，并且为其注入SessionFactory 使用HibernateTemplate不太方便的就是要获取session得通过getSessionFactory()方法获取 
+		让hibernate使用spring的SessionFactory -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 配置Spring的事务处理 -->
+	<!-- 创建事务管理器 方法级别的回滚，txManager为标准命名 -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 启动事务的注解，即Service中加的@Transactional -->
+	<tx:annotation-driven transaction-manager="txManager" />
+	<bean id="exceptionResolver" class="cn.edu.bit.handler.ExceptionHandler"/> 
+	<!-- 异常配置 
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</bean>-->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+</beans>
+
+

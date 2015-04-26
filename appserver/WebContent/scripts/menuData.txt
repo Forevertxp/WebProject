@@ -1,0 +1,15 @@
+[
+	{ id: "user", text: "用户管理", iconCls: "icon-add"},
+	{ id: "addUser", pid: "user", text: "用户管理", iconCls: "icon-edit", url: "../user/query" },
+	
+	 { id: "pushMsg", text: "推送消息", iconCls: "icon-add"},
+	 { id: "pushMsgQuery", pid: "pushMsg", text: "消息管理", iconCls: "icon-edit", url: "../pushMsg/query" },
+     { id: "pushMsgReadinfo", pid: "pushMsg", text: "阅读记录", iconCls: "icon-edit", url: "../pushMsg/readInfoList" },
+     
+	 { id: "consult", text: "信息咨询", iconCls: "icon-add"},
+	 { id: "consultList", pid: "consult", text: "咨询信息", iconCls: "icon-edit", url: "../consult/consultList" },
+	 
+	 { id: "upload", text: "上传文件", iconCls: "icon-add"},
+	 { id: "uploadFile", pid: "upload", text: "上传文件到", iconCls: "icon-edit", url: "../upload/uploadToInstall" }
+  
+  ]
